@@ -1,86 +1,46 @@
 console.log("programa5.js");
 
-/*
-
-1.- Reloj a partir de una función constructora
-2.- El reloj tendrá nombre y mostrará su nombre cada vez que haga un console.log() ----> ROLEX 00:02:34
-
-3.- El reloj tendrá un atributo estado. El estado podrá ser: 
-
-"RUNNING" (está en marcha)
-"STOPPED" (está reiniciado y parado)
-"PAUSED" (está pausado)
-
-4.- Arreglar bug!
-
-
-let reloj1 = new Reloj("Rolex");
-let reloj2 = new Reloj("CASIO");
-
-*/
-
-// Ejemplo de función constructora de Producto
-
-function Producto(codigo, nombre){
-
-    this.codigo = codigo;
-    this.nombre = nombre;
-    this.precio = undefined;
-    this.descatalogdo = false;
-
-    this.getFicha = () => {
-        return `${this.nombre} [${this.precio}]`
-    }
-}
-
-let producto1 = new Producto(10223, "Impresora Epson D45");
-let producto2 = new Producto(20300, "Cartucho tinta");
-
-producto1.precio = 670.70;
-producto2.precio = 23.50;
-producto2.descatalogado = true;
-
-// ********************************************************************
+// Reloj OBJETO a partir de una función constructora
 
 function Reloj(nombre){
-    // TODO
-}
+    
+    this.nombre = nombre;
+    this.estado = "STOPPED";
+    this.totalSeconds = 0;
+    this.intervalID = 0;
+    this.sentido = 1;
 
-let reloj = {
+    this.start = function(){
+        this.totalSeconds = 0;
+        this.resume();
+    }
 
-    totalSeconds: 0,
-    sentido: 1,
-    intervalID: undefined,
+    this.pause = function(){
+        this.estado = "PAUSED";
+        clearInterval(this.intervalID);
+    }
 
-    start: function() {
-
-        intervalID = setInterval(() => {
-
-            // Aquí SI disponemos del this :-)
-            
-            console.log(display(this.totalSeconds));
+    this.resume = function(){
+        clearInterval(this.intervalID);
+        this.estado = "RUNNING";
+        this.intervalID = setInterval(() => {
+            console.log(`${this.nombre} ${display(this.totalSeconds)}`);
             this.totalSeconds += this.sentido;
-        },1000);
-    },
+        }, 1000);
+    }
 
-    pause: function(){
+    this.reset = function(){
         clearInterval(this.intervalID);
-    },
-
-    resume: function(){
-        this.start();
-    },
-
-    reset: function(){
-        clearInterval(this.intervalID);
+        this.estado = "STOPPED";
         this.totalSeconds = 0;
         this.sentido = 1;
-    },
-
-    invert: function(){
-        this.sentido *= -1;
     }
-};
+
+    this.invert = function(){
+        this.totalSeconds *= -1;
+    }
+
+}
 
 function display(numeroSegundos){
     
