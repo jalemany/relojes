@@ -1,45 +1,49 @@
-console.log("programa5.js");
+console.log("programa6.js");
 
-// Reloj OBJETO con función constructora
+// Reloj OBJETO con clase de ES6
 
-function Reloj(nombre){
-    
-    this.nombre = nombre;
-    this.estado = "STOPPED";
-    this.totalSeconds = 0;
-    this.intervalID = 0;
-    this.sentido = 1;
+class Reloj {
 
-    this.start = function(){
+    nombre = undefined;
+    estado = "STOPPED";
+    totalSeconds = 0;
+    intervalID = 0;
+    sentido = 1;
+
+    constructor(nombre) {
+        this.nombre = nombre;
+    }
+
+    start() {
         this.totalSeconds = 0;
         this.resume();
     }
 
-    this.pause = function(){
+    pause() {
         this.estado = "PAUSED";
         clearInterval(this.intervalID);
     }
 
-    this.resume = function(){
+    resume() {
         clearInterval(this.intervalID);
         this.estado = "RUNNING";
         this.intervalID = setInterval(() => {
-            console.log(`${this.nombre} ${display(this.totalSeconds)}`);
-            this.totalSeconds += this.sentido;
+        console.log(`${this.nombre} ${display(this.totalSeconds)}`);
+        this.totalSeconds += this.sentido;
         }, 1000);
     }
 
-    this.reset = function(){
+    reset() {
         clearInterval(this.intervalID);
         this.estado = "STOPPED";
         this.totalSeconds = 0;
         this.sentido = 1;
     }
 
-    this.invert = function(){
+    invert() {
         this.totalSeconds *= -1;
     }
-
+  
 }
 
 function display(numeroSegundos){

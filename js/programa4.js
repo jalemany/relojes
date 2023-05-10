@@ -1,6 +1,6 @@
 console.log("programa4.js");
 
-// Reloj OBJETO con literales y funciones flecha =>
+// Reloj OBJETO con literales y función flecha
 
 let reloj = {
 

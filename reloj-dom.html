@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Relojes</title>
+    <script src="js/programa7.js"></script>
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+    <h1>Reloj</h1>
+
+    <div class="elegante">
+        <span id="idHoras">00</span>:<span id="idMinutos">00</span><span id="idSegundos">00</span>
+    </div>
+
+    <hr>
+
+    <table>
+        <tr>
+            <th>Nombre</th>
+            <td id="idNombre"></td>
+        </tr>
+        <tr>
+            <th>Estado</th>
+            <td id="idEstado"></td>
+        </tr>
+        <tr>
+            <th>Sentido</th>
+            <td id="idSentido"></td>
+        </tr>
+    </table>
+
+    <hr>
+
+    <div>
+       <button id="idStartButton">START</button>
+       <button id="idPauseButton">PAUSE</button>
+       <button id="idResumeButton">RESUME</button>
+       <button id="idInvertButton">INVERT</button>
+       <button id="idResetButton">RESET</button>
+    </div>
+
+    <script>
+
+        let reloj = new Reloj('Longines');
+        
+        let idStartButton = document.getElementById("idStartButton");
+        let idPauseButton = document.getElementById("idPauseButton");
+        let idResumeButton = document.getElementById("idResumeButton");
+        let idInvertButton = document.getElementById("idInvertButton");
+        let idResetButton = document.getElementById("idResetButton");
+        let idEstado = document.getElementById("idEstado");
+        let idNombre = document.getElementById("idNombre");
+        let idSentido = document.getElementById("idSentido");
+        let idHoras = document.getElementById("idHoras");
+        let idMinutos = document.getElementById("idMinutos");
+        let idSegundos = document.getElementById("idSegundos");
+
+        idStartButton.addEventListener('click', () => {
+            reloj.start();
+        });
+
+        idPauseButton.addEventListener('click', () => {
+            reloj.pause();
+        });
+
+        idResumeButton.addEventListener('click', () => {
+            reloj.resume();
+        });
+
+        idInvertButton.addEventListener('click', () => {
+            reloj.invert();
+        });
+
+        idResetButton.addEventListener('click', () => {
+            reloj.reset();
+        });
+
+        // Nos subscribimos al evento 'timeGoesBy'
+        window.addEventListener('timeGoesBy', event => {
+            console.log(event.detail);
+            idNombre.innerHTML = event.detail.nombre;
+            idEstado.innerHTML = event.detail.estado;
+            idSentido.innerHTML = event.detail.sentido;
+            idHoras.innerHTML =  String(event.detail.horas).padStart(2, '0'); 
+            idMinutos.innerHTML =  String(event.detail.minutos).padStart(2, '0'); 
+            idSegundos.innerHTML =  String(event.detail.segundos).padStart(2, '0'); 
+
+        });
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Relojes</title>
+    <script src="js/programa7.js"></script>
+</head>
+<body>
+    <h1>Reloj</h1>
+    <script>
+
+        let reloj = new Reloj('Longines');
+        reloj.start();
+
+        // Nos subscribimos al evento 'timeGoesBy'
+        window.addEventListener('timeGoesBy', event => {
+            console.log(event.detail);
+        });
+
+    </script>
+</body>
+</html>

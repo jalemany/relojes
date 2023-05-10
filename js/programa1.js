@@ -1,5 +1,7 @@
 console.log("programa1.js");
 
+// Función que muestra segundos en formato 00:00:00
+
 function display(numeroSegundos){
     
     if(isNaN(numeroSegundos)){
