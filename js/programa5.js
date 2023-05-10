@@ -1,9 +1,19 @@
 console.log("programa5.js");
 
-// Reloj a partir de una función constructora
-// El reloj tendrá nombre y mostrará su nombre cada vez que haga un console.log() ----> ROLEX 00:02:34
-
 /*
+
+1.- Reloj a partir de una función constructora
+2.- El reloj tendrá nombre y mostrará su nombre cada vez que haga un console.log() ----> ROLEX 00:02:34
+
+3.- El reloj tendrá un atributo estado. El estado podrá ser: 
+
+"RUNNING" (está en marcha)
+"STOPPED" (está reiniciado y parado)
+"PAUSED" (está pausado)
+
+4.- Arreglar bug!
+
+
 let reloj1 = new Reloj("Rolex");
 let reloj2 = new Reloj("CASIO");
 
