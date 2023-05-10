@@ -1,7 +1,7 @@
 console.log("programa5.js");
 
 // Reloj a partir de una función constructora
-// Otra modificación es que el reloj tendrá nombre y mostrará su nombre cada vez que haga un console.log()
+// El reloj tendrá nombre y mostrará su nombre cada vez que haga un console.log() ----> ROLEX 00:02:34
 
 /*
 let reloj1 = new Reloj("Rolex");
@@ -93,5 +93,4 @@ function display(numeroSegundos){
     let indicadorNegativo = numeroSegundos < 0 ? " *" : "";
     
     return `${horas}:${minutos}:${segundos}${indicadorNegativo}`;
-
 }
