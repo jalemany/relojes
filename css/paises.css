@@ -1,0 +1,22 @@
+table.customTable {
+  width: 100%;
+  background-color: #6c6c6c0f;
+  border-collapse: collapse;
+  border-width: 1px;border-color: #0a162f;
+  border-style: solid;
+  color: #000000;
+}
+
+table.customTable th {
+  border-width: 1px;
+  border-style: solid;
+  font-size: 20px;
+  padding: 5px;
+}
+
+table.customTable td {
+  border-width: 1px;
+  border-style: solid;
+  padding: 2px;
+}
+  

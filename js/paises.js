@@ -19,6 +19,7 @@ function solicitarPaises(){
 function populateData(paises){
 
     let tabla = document.createElement("table");
+    tabla.classList.add("customTable");
 
     let filaHeaders = document.createElement("tr");
 
@@ -28,11 +29,11 @@ function populateData(paises){
     let header4 = document.createElement("th");
     let header5 = document.createElement("th");
 
-    header1.innerHTML = "Nombre";
-    header2.innerHTML = "Capital";
-    header3.innerHTML = "Número de habitantes";
-    header4.innerHTML = "Bandera";
-    header5.innerHTML = "Código de paises fronterizos";
+    header1.innerHTML = "NOMBRE";
+    header2.innerHTML = "CAPITAL";
+    header3.innerHTML = "NÚMERO DE HABITANTES";
+    header4.innerHTML = "BANDERA";
+    header5.innerHTML = "CÓDIGO DE PAISES FRONTERIZOS";
 
     filaHeaders.appendChild(header1);
     filaHeaders.appendChild(header2);
@@ -62,17 +63,34 @@ function populateData(paises){
         let columna5 = document.createElement("td");
 
         columna1.innerHTML = nombre;
-        columna2.innerHTML = capital; // *****************************************************
+        columna2.innerHTML = capital; 
         columna3.innerHTML = population;
-        columna4.innerHTML = nombre;
-        columna5.innerHTML = nombre;
 
+        let bandera = document.createElement("img");
+        bandera.setAttribute("src", banderaPNG);
+        bandera.setAttribute("alt", banderaALT);
+        bandera.style.height = '40px';
+        bandera.style.width = '60px';
 
-        
+        columna4.appendChild(bandera);
 
+        let listaFronteras = document.createElement("ul");
+        for(let frontera of fronteras){
+            let elemento = document.createElement("li");
+            elemento.innerHTML = frontera;
+            listaFronteras.appendChild(elemento);
+        }
 
-        //console.log(nombre + " - " + capital + " - " + population + " - " + banderaPNG + " - " + banderaALT);
-        //console.log(fronteras);
+        columna5.appendChild(listaFronteras);
+
+        fila.appendChild(columna1);
+        fila.appendChild(columna2);
+        fila.appendChild(columna3);
+        fila.appendChild(columna4);
+        fila.appendChild(columna5);
+
+        tabla.appendChild(fila);
+
     }
 }
 
