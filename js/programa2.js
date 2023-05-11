@@ -32,19 +32,6 @@ function invert(){
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 function display(numeroSegundos){
     
     if(isNaN(numeroSegundos)){

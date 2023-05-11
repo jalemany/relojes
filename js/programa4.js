@@ -9,13 +9,9 @@ let reloj = {
     intervalID: undefined,
 
     start: function() {
-
         intervalID = setInterval(() => {
-
-            // Aquí SI disponemos del this :-)
-            
             console.log(display(this.totalSeconds));
-            this.totalSeconds += this.sentido;
+            this.totalSeconds += this.sentido;          // Aquí SI disponemos del this :-)
         },1000);
     },
 

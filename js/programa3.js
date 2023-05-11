@@ -10,9 +10,7 @@ let reloj = {
 
     start: function(){
 
-        // Aquí SI que disponemos del this :-)
-
-        var self = this;
+        var self = this; // Aquí SI que disponemos del this :-)
 
         this.intervalID = setInterval(function(){
 
