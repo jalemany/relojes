@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>HTML generado automaticamente</h1>
+
+    <!-- HTML generado con documnet.createElement y appendChild-->
+
+    <div id="idContenido"></div>
+
+    <script>
+
+        let productos = [
+
+            {
+                nombre: "Impresora HP",
+                precio: 570.50
+            },
+            {
+                nombre: "Ordenador Epson",
+                precio: 1200.00
+            },
+            {
+                nombre: "Alfombrilla Mouse CR7",
+                precio: 0.50
+            }
+
+        ];
+
+        // Nuestro objetivo es "pintar" una tabla con la información de productos dentro de la caja div
+
+        let tabla = document.createElement("table");
+
+        let filaHeaders = document.createElement("tr");
+
+        let header1 = document.createElement("th");
+        let header2 = document.createElement("th");
+
+        header1.innerHTML = "Nombre del Producto";
+        header2.innerHTML = "Precio (Euros)";
+
+        filaHeaders.appendChild(header1);
+        filaHeaders.appendChild(header2);
+        tabla.appendChild(filaHeaders);
+
+        let contenido = document.getElementById("idContenido");
+        contenido.appendChild(tabla);
+
+        for(let producto of productos){
+            let filaProducto = document.createElement("tr");
+
+            filaProducto.innerHTML = `<td>${producto.nombre}</td><td>${producto.precio}</td>`;
+
+            /*
+            let columna1 = document.createElement("td");
+            let columna2 = document.createElement("td");
+            columna1.innerHTML = producto.nombre;
+            columna2.innerHTML = producto.precio;
+            filaProducto.appendChild(columna1);
+            filaProducto.appendChild(columna2);
+            */
+
+            tabla.appendChild(filaProducto);
+        }
+
+    </script>
+</body>
+</html>
